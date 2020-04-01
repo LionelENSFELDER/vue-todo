@@ -1,18 +1,29 @@
-import Vue from 'vue'
-
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-import App from './App.vue'
-
-// Install BootstrapVue
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-
+// CONFIG
 Vue.config.productionTip = false
-
+// CORE
+import Vue from 'vue/dist/vue.js';
+import VueRouter from 'vue-router';
+// COMPONENTS
+import Todo from './views/Todo.vue';
+import Login from './views/Login.vue';
+import Signup from './views/Signup.vue';
+// STYLES
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+// USE
+Vue.use(VueRouter);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+// ROUTES
+const routes = [
+  { path: '/', component: Todo },
+  { path: '/login', component: Login },
+  { path: '/signup', component: Signup }
+];
+// ROUTER INSTANCE
+const router = new VueRouter({ mode: 'history', routes });
+// INSTANCE
 new Vue({
-  render: h => h(App),
+  router
 }).$mount('#app')
