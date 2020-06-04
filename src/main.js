@@ -1,10 +1,10 @@
-// CONFIG
-Vue.config.productionTip = false
 // CORE
 import Vue from 'vue/dist/vue.js';
 import VueRouter from 'vue-router';
+// CONFIG
+Vue.config.productionTip = false
 // COMPONENTS
-import Todo from './views/Todo.vue';
+import TasksManager from './views/TasksManager.vue';
 import Login from './views/Login.vue';
 import Signup from './views/Signup.vue';
 // STYLES
@@ -17,7 +17,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 // ROUTES
 const routes = [
-  { path: '/', component: Todo },
+  { path: '/', component: TasksManager },
   { path: '/login', component: Login },
   { path: '/signup', component: Signup }
 ];
