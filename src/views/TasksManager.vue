@@ -2,14 +2,26 @@
 <template>
 	<div style="max-width: 25rem;" class="mx-auto">
 		<div id="taskmanager">
-			<img alt="Vue logo" src="../assets/logo.png">
-			<b-container>
-					<b-form-input type="text" class="mb-4" placeholder="write a task to done" v-model="newTodo" v-on:keyup.enter="addTodo"></b-form-input>
-					<TodoItem @delete="deleteTodo" @stateChange="stateChange" v-for="item in todoList" v-bind:key="item.id" v-bind:item="item"></TodoItem>
-				<b-button class="mt-5" variant="outline-secondary" v-on:click="debug">
-					DEBUG
-				</b-button>
-			</b-container>
+			<b-icon icon="plug" animation="throb" font-scale="5" class="mb-3"></b-icon>
+			
+			<div>
+				<b-input-group>
+
+					<b-input-group-prepend>
+						<b-button v-on:click="debug">
+							<b-icon icon="braces"></b-icon>
+						</b-button>
+						<b-button>
+							<b-icon icon="eye-slash"></b-icon>
+						</b-button>
+					</b-input-group-prepend>
+
+					<b-form-input type="text" class="input" placeholder="write a task to done" v-model="newTodo" v-on:keyup.enter="addTodo"></b-form-input>
+
+				</b-input-group>
+			</div>
+
+			<TodoItem @edit="editTodo" @delete="deleteTodo" @stateChange="stateChange" v-for="item in todoList" v-bind:key="item.id" v-bind:item="item"></TodoItem>
 		</div>
 	</div>
 </template>
@@ -45,20 +57,25 @@
 				})
 				this.newTodo=""
 			},
+			editTodo({item, name}){
+				item.name = name;
+			},
 			deleteTodo(item){
 				this.todoList.splice(this.todoList.indexOf(item), 1);	
 			},
 			stateChange({item, state}){
-				console.log(this.todoList.indexOf(item) + state);
 				item.completed = state;
-				//item.completed == false ? item.completed =true : item.completed =false;
+				state == true ? this.item.variant = "success" : this.item.variant="";
 			}
 		}
 	}
 </script>
 <!-- STYLE -->
 <style>
+body{
+}
   #taskmanager {
+	/* background-color:#444659;*/
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
