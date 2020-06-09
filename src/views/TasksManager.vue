@@ -28,18 +28,22 @@
 		
 		<TodoItem @edit="editTodo" @delete="deleteTodo" @stateChange="stateChange" v-for="item in todoList" v-bind:key="item.id" v-bind:item="item"></TodoItem>
 
-		<b-card-text>
+		<!--<b-card-text>
 			Some quick example text to build on the card title and make up the bulk of the card's content.
-		</b-card-text>
+		</b-card-text>-->
 
-		
 		<div>
 			<b-button href="#" variant="link" class="font-italic" v-on:click="debug">Debug</b-button>
 			<b-button href="#" variant="link" class="font-italic">Hide complete</b-button>
 			<b-button href="#" variant="link" class="font-italic">Clear All !</b-button>
 		</div>
 	</b-card>
+
+	
+	<Footer></Footer>
+
 	</div>
+
 
 </template>
 
@@ -81,7 +85,6 @@
 				this.todoList.splice(this.todoList.indexOf(item), 1);	
 			},
 			stateChange({item, state}){
-				console.log(item + state);
 				item.completed = state;
 			}
 		}

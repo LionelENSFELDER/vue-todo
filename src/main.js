@@ -4,6 +4,8 @@ import VueRouter from 'vue-router';
 // CONFIG
 Vue.config.productionTip = false
 // COMPONENTS
+
+// VIEWS
 import TasksManager from './views/TasksManager.vue';
 import Login from './views/Login.vue';
 import Signup from './views/Signup.vue';

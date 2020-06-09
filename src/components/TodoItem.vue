@@ -4,9 +4,7 @@
 		<b-input-group>
 
 			<b-input-group-prepend is-text>
-				<!-- <input type="checkbox" aria-label="Checkbox for following text input" @click="stateChange" v-model="this.item.completed"> -->
-				<b-form-checkbox type="checkbox" @click="stateChange()" v-model="this.item.completed"></b-form-checkbox>
-				<!--<b-form-checkbox @click="stateChange"></b-form-checkbox>-->
+				<input type="checkbox" @click="stateChange" v-model="item.completed">
 			</b-input-group-prepend>
 
 			<b-form-input :id="item.name" aria-label="Text input with checkbox" :placeholder="item.name" v-model="item.name" v-on:keyup.enter="editThisItem"></b-form-input>
@@ -30,24 +28,24 @@
 		props: ['item'],
 		methods: {
 			editThisItem(e){
-				const item = this.item;
+				let item = this.item;
 				let name = e.target.value;
 				this.$emit('edit', {item, name});
 				
 			},
 			deleteThisItem(){
-				const item = this.item;
+				let item = this.item;
 				this.$emit('delete', item);
 			},
-			stateChange(){
-				//let item = this.item;
-				console.log("dfdfdfdf");
-				// let state = e.target.checked;
-				// this.$emit('stateChange', {item, state});
+			stateChange(e){
+				let item = this.item;
+				let state = e.target.checked;
+				this.$emit('stateChange', {item, state});
 			}
 		},
 		data(){
 			return{
+				isCompleted: false
 			}
 		}
 	}
