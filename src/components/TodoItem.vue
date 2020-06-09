@@ -11,7 +11,7 @@
 
 			<b-input-group-append>
 				<b-button class="border-0" variant="outline-secondary" v-on:click="deleteThisItem">
-					<b-icon class="todoItem_iconTrash" icon="trash-fill" style="color: #9390A8;"></b-icon>
+					<i class="las la-trash la-lg todoItem_iconTrash" style="color: #9390A8;"></i>
 				</b-button>
 			</b-input-group-append>
 
@@ -40,6 +40,7 @@
 			stateChange(e){
 				let item = this.item;
 				let state = e.target.checked;
+				//state == true ? 
 				this.$emit('stateChange', {item, state});
 			}
 		},
@@ -68,6 +69,7 @@
 .todoItem{
 	padding: 0.3rem !important;
 }
-
+.input-group-append :hover{
+	background: #4A455B !important;
+}
 </style>
-

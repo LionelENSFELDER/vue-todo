@@ -13,6 +13,7 @@ import Signup from './views/Signup.vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'line-awesome/dist/line-awesome/css/line-awesome.min.css';
 // USE
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
