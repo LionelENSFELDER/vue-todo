@@ -1,34 +1,51 @@
 <!-- TEMPLATE -->
 <template>
-	<div style="max-width: 25rem;" class="mx-auto">
-		<div id="taskmanager">
-			<b-icon icon="plug" animation="throb" font-scale="5" class="mb-3"></b-icon>
-			
-			<div>
-				<b-input-group>
 
-					<b-input-group-prepend>
-						<b-button v-on:click="debug">
-							<b-icon icon="braces"></b-icon>
-						</b-button>
-						<b-button>
-							<b-icon icon="eye-slash"></b-icon>
-						</b-button>
-					</b-input-group-prepend>
+	<div>
+	<b-card 
+		id="taskmanager" 
+		title="Miiniimaal tasks list"
+		style="max-width: 30rem;"
+		class="mx-auto border-0 py-5 text-left"
+	>
 
-					<b-form-input type="text" class="input" placeholder="write a task to done" v-model="newTodo" v-on:keyup.enter="addTodo"></b-form-input>
+		<div>
+			<b-input-group class="mb-3">
 
-				</b-input-group>
-			</div>
+				<b-input-group-prepend>
+					<b-button v-on:click="debug">
+						<b-icon icon="braces"></b-icon>
+					</b-button>
+					<b-button>
+						<b-icon icon="eye-slash"></b-icon>
+					</b-button>
+				</b-input-group-prepend>
 
-			<TodoItem @edit="editTodo" @delete="deleteTodo" @stateChange="stateChange" v-for="item in todoList" v-bind:key="item.id" v-bind:item="item"></TodoItem>
+				<b-form-input type="text" class="input" placeholder="write a task to done" v-model="newTodo" v-on:keyup.enter="addTodo"></b-form-input>
+
+			</b-input-group>
 		</div>
+		
+		<TodoItem @edit="editTodo" @delete="deleteTodo" @stateChange="stateChange" v-for="item in todoList" v-bind:key="item.id" v-bind:item="item"></TodoItem>
+
+		<b-card-text>
+			Some quick example text to build on the card title and make up the bulk of the card's content.
+		</b-card-text>
+
+		
+		<div>
+			<b-button href="#" variant="link" class="font-italic" v-on:click="debug">Debug</b-button>
+			<b-button href="#" variant="link" class="font-italic">Hide complete</b-button>
+			<b-button href="#" variant="link" class="font-italic">Clear All !</b-button>
+		</div>
+	</b-card>
 	</div>
+
 </template>
 
 
 <script>
-  import TodoItem from '../components/TodoItem.vue';
+	import TodoItem from '../components/TodoItem.vue';
 
 	export default {
 		name: 'TasksManager',
@@ -64,18 +81,19 @@
 				this.todoList.splice(this.todoList.indexOf(item), 1);	
 			},
 			stateChange({item, state}){
+				console.log(item + state);
 				item.completed = state;
-				state == true ? this.item.variant = "success" : this.item.variant="";
 			}
 		}
 	}
 </script>
 <!-- STYLE -->
 <style>
-body{
-}
+	body{
+		background-color: #ECEEF5 !important;
+	}
   #taskmanager {
-	/* background-color:#444659;*/
+	background-color: #9390A8 !important;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
