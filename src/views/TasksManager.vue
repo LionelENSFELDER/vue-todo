@@ -4,7 +4,7 @@
 	<div>
 	<b-card 
 		id="taskmanager" 
-		title="Miiniimaal tasks list"
+		title=""
 		style="max-width: 30rem;"
 		class="mx-auto border-0 py-5 text-left"
 	>
@@ -28,10 +28,10 @@
 
 		<b-card-footer class="p-0 my-3 border-0 bg-transparent">
 			<div>
-				<button type="button" class="btn btn-outline-light mr-2" v-on:click="debug">Debug</button>
-				<button type="button" class="btn btn-outline-light mr-2">All</button>
-				<button type="button" class="btn btn-outline-light mr-2">Complete</button>
-				<button type="button" class="btn btn-outline-light mr-2">Incomplete</button>
+				<button type="button" class="btn btn-link mr-2" v-on:click="debug">Debug</button>
+				<button type="button" class="btn btn-link mr-2">All</button>
+				<button type="button" class="btn btn-link mr-2">Complete</button>
+				<button type="button" class="btn btn-link mr-2">Incomplete</button>
 			</div>
 		</b-card-footer>
 	</b-card>
@@ -94,7 +94,7 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 	body{
-		background-color: #ECEEF5 !important;
+		background-color: #1A1A1A !important;
 	}
 	.card-title{
 		font-family: 'VT323';
@@ -108,7 +108,16 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
-		color: #2c3e50;
+		color: #1A1A1A;
 		margin-top: 60px;
+	}
+	.btn-link, .btn-outline-light{
+		color: #AFAEC8 !important;
+	}
+	.btn-outline-light{
+		border-color: #AFAEC8 !important;
+	}
+	.btn-outline-light:hover{
+		background-color: #9390A8 !important;
 	}
 </style>

@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app" class="vh-100 py-5">
-      <!-- le composant correspondant à la route sera rendu ici -->
-      <router-view></router-view>
-    </div>
-    <div class="d-flex fixed-bottom py-4" id="footer">
-      <b-container class="bv-example-row">
-          <b-row>
-              <b-col>1 of 3</b-col>
-              <b-col>2 of 3</b-col>
-          </b-row>
-      </b-container>
-    </div>
-    <!-- built files will be auto injected -->
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="icon" href="<%= BASE_URL %>favicon.ico">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+	</head>
+	<body>
+	<noscript>
+		<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+	</noscript>
+	<div id="app" class="vh-100 py-5">
+		<!-- le composant correspondant à la route sera rendu ici -->
+		<router-view></router-view>
+	</div>
+	<div class="d-flex fixed-bottom py-4" id="footer">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div>
+					<a href="https://github.com/LionelENSFELDER" target="_blank" class="btn btn-link"><i class="lab la-github la-lg"></i>Github</a>
+					<a href="https://www.linkedin.com/in/lionel-ensfelder" target="_blank" class="btn btn-link"><i class="lab la-linkedin-in la-lg"></i>LinkedIn</a>
+					<a href="https://lioens.dev/" target="_blank" class="btn btn-link"><i class="las la-globe la-lg"></i>lionel Ensfelder</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- built files will be auto injected -->
+	</body>
 </html>

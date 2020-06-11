@@ -70,6 +70,9 @@
 	padding: 0.3rem !important;
 }
 .input-group-append :hover{
-	background: #4A455B !important;
+	background: #9390A8 !important;
+}
+.input-group-append:hover i{
+	color: #FFF !important;
 }
 </style>
