@@ -9,6 +9,13 @@
 		class="mx-auto border-0 py-5 text-left"
 	>
 
+		<b-card-header class="p-0 my-3 border-0 bg-transparent">
+			<div id="card-header-container">
+				<h1 class="font-weight-bold">Vue todo list</h1>
+			</div>
+		</b-card-header>
+
+
 		<div>
 			<b-input-group class="mb-3">
 				<b-form-input id="todoInput" type="text" class="input mr-2" placeholder="Write a task & press ENTER" v-model="newTodo" v-on:keyup.enter="addTodo"></b-form-input>
@@ -28,10 +35,10 @@
 
 		<b-card-footer class="p-0 my-3 border-0 bg-transparent">
 			<div>
-				<button type="button" class="btn btn-link mr-2" v-on:click="debug">Debug</button>
-				<button type="button" class="btn btn-link mr-2">All</button>
-				<button type="button" class="btn btn-link mr-2">Complete</button>
-				<button type="button" class="btn btn-link mr-2">Incomplete</button>
+				<!-- <button type="button" class="btn btn-link mr-2" v-on:click="debug">Debug</button> -->
+				<button type="button" class="btn btn-link mr-2" v-on:click="displayAllTasks">All</button>
+				<button type="button" class="btn btn-link mr-2" v-on:click="displayCompletedTasks">Complete</button>
+				<button type="button" class="btn btn-link mr-2" v-on:click="displayIncompletedTasks">Incomplete</button>
 			</div>
 		</b-card-footer>
 	</b-card>
@@ -86,6 +93,35 @@
 			},
 			stateChange({item, state}){
 				item.completed = state;
+			},
+			displayAllTasks(){
+				let itemsList = document.querySelectorAll('.todoItem');
+				itemsList.forEach((item)=>{
+					item.classList.remove('d-none');
+				})
+			},
+			displayCompletedTasks(){
+				let itemsList = document.querySelectorAll('.todoItem');
+				itemsList.forEach((item)=>{
+					item.classList.remove('d-none');
+					let checkbox = item.querySelector('input[type="checkbox"]');
+					if(checkbox.checked == false){
+						item.classList.add('d-none');
+					}
+					
+				})
+
+			},
+			displayIncompletedTasks(){
+				let itemsList = document.querySelectorAll('.todoItem');
+				itemsList.forEach((item)=>{
+					item.classList.remove('d-none');
+					let checkbox = item.querySelector('input[type="checkbox"]');
+					if(checkbox.checked == true){
+						item.classList.add('d-none');
+					}
+					
+				})
 			}
 		}
 	}
@@ -119,5 +155,9 @@
 	}
 	.btn-outline-light:hover{
 		background-color: #9390A8 !important;
+	}
+	#card-header-container{
+		font-size: 1.8rem;
+		color: white;
 	}
 </style>
